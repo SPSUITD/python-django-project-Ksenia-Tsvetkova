@@ -1,0 +1,11 @@
+{{ chat.name }}
+
+{% for msg in messages %}
+  <br>{{msg.created_at.time}}{{ msg.sender }} - {{ msg.body }}
+{% endfor %}
+
+<form method="POST">
+  {% csrf_token %}
+  <input type="text" name="body" placeholder="Ваше сообщение">
+  <button type="submit">Отправить</button>
+</form>
